@@ -1,0 +1,37 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Laravel backend specific
+laravel-backend/.env
+laravel-backend/.env.backup
+laravel-backend/.env.production
+laravel-backend/vendor/
+laravel-backend/node_modules/
+laravel-backend/storage/*.key
+laravel-backend/storage/pail
+laravel-backend/.phpunit.result.cache
+laravel-backend/public/build
+laravel-backend/public/hot
+laravel-backend/public/storage
+
+# React frontend
+react-frontend/node_modules/
+react-frontend/build/
+react-frontend/dist/
+react-frontend/.env
+react-frontend/.env.local
+react-frontend/.env.production.local
+
+# Node.js script
+nodejs-script/node_modules/
+nodejs-script/.env
+
+# IDE files
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
