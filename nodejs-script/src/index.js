@@ -2,6 +2,7 @@ import fetchLatestArticle from "./fetchLatestArticle.js";
 import checkUpdatedExists from "./checkUpdatedExists.js";
 import searchGoogle from "./searchGoogle.js";
 import scrapeArticle from "./scrapeArticle.js";
+import rewriteWithLLM from "./rewriteWithLLM.js";
 
 async function main() {
   try {
@@ -24,9 +25,21 @@ async function main() {
 
     console.log(googleLinks);
 
-    const articleContent = await scrapeArticle(googleLinks[1]);
-    console.log(articleContent);
-    
+    const referenceContentArray = [];
+    for (const link of googleLinks) {
+        const referenceContent = await scrapeArticle(link);
+        referenceContentArray.push(referenceContent);
+    }
+    // console.log(referenceContentArray);
+
+    const rewrittenArticle = await rewriteWithLLM({ originalContent: latestOriginalArticle.content, referenceContent: referenceContentArray });
+    if (!rewrittenArticle) {
+      console.log("Failed to rewrite article with LLM");
+      return;
+    }
+    console.log("Rewritten Article from LLM:");
+    console.log(rewrittenArticle);
+
   } catch (error) {
     console.error("Error in main function");
     console.error(error.message);
