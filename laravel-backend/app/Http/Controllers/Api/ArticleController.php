@@ -74,4 +74,16 @@ class ArticleController extends Controller
         return $article;
     }
 
+    public function compare($id){
+        $originalArticle = Article::findOrFail($id);
+        $updatedArticle = Article::where('parent_id', $id)
+            ->where('status', 'updated')
+            ->orderBy('created_at', 'desc')
+            ->first();
+        return [
+            'originalArticle' => $originalArticle,
+            'updatedArticle' => $updatedArticle,
+        ];
+    }
+
 }
