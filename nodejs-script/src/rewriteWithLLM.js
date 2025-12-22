@@ -19,6 +19,7 @@ Your task:
 - Use better structure and clear headings.
 - Make the content SEO-friendly and engaging.
 - Keep the content fully original.
+- Do NOT include Title in the rewritten article and directly start with the content.
 - Do NOT copy sentences from reference articles.
 - Do NOT include any references or URLs.
 - Output the result in valid Markdown format.
