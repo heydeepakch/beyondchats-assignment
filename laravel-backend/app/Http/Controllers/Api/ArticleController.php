@@ -50,4 +50,11 @@ class ArticleController extends Controller
         Article::findOrFail($id)->delete();
         return response()->json(['message' => 'Deleted']);
     }
+
+    // /api/articles/latest route to get the latest article
+    public function latest()
+    {
+        $article =  Article::where('status', 'original')->orderBy('created_at', 'desc')->first();
+        return $article;
+    }
 }
