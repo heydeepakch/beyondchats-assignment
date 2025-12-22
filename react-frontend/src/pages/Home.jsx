@@ -48,8 +48,8 @@ export default function Home() {
             </p>
 
             <button
-              onClick={() => navigate(`/articles/${article.id}`)}
-              className="px-4 py-2 bg-sky-700 text-white rounded hover:bg-blue-700"
+              onClick={() => navigate(`/compare/${article.id}`)}
+              className="px-4 py-2 bg-sky-700 text-white rounded hover:bg-sky-800"
             >
               View Article
             </button>
