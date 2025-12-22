@@ -11,9 +11,16 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Article::orderBy('created_at', 'desc')->get();
+        $query = Article::query();
+
+        // Filter by status if provided
+        if ($request->has('status')) {
+            $query->where('status', $request->status);
+        }
+
+        return $query->orderBy('created_at', 'desc')->get();
     }
 
     /**
