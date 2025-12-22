@@ -1,6 +1,7 @@
 import fetchLatestArticle from "./fetchLatestArticle.js";
 import checkUpdatedExists from "./checkUpdatedExists.js";
 import searchGoogle from "./searchGoogle.js";
+import scrapeArticle from "./scrapeArticle.js";
 
 async function main() {
   try {
@@ -22,6 +23,10 @@ async function main() {
     }
 
     console.log(googleLinks);
+
+    const articleContent = await scrapeArticle(googleLinks[1]);
+    console.log(articleContent);
+    
   } catch (error) {
     console.error("Error in main function");
     console.error(error.message);
