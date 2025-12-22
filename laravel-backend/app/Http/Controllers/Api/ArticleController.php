@@ -57,4 +57,14 @@ class ArticleController extends Controller
         $article =  Article::where('status', 'original')->orderBy('created_at', 'desc')->first();
         return $article;
     }
+
+    public function updated($id)
+    {
+        $article = Article::where('parent_id', $id)
+            ->where('status', 'updated')
+            ->orderBy('created_at', 'desc')
+            ->first();
+        return $article;
+    }
+
 }
