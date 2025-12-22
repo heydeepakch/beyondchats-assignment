@@ -1,7 +1,7 @@
 import axios from "axios";
 import dotenv from "dotenv";
 
-dotenv.config({ path: "../.env" });
+dotenv.config();
 const SERPER_API_KEY = process.env.SERPER_API_KEY;
 
 export default async function searchGoogle(query) {

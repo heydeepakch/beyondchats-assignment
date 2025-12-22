@@ -1,6 +1,6 @@
 import axios from "axios";
 import dotenv from "dotenv";
-dotenv.config({ path: "../.env" });
+dotenv.config();
 
 const BASE_URL = process.env.LARAVEL_BASE_URL;
 

@@ -59,7 +59,7 @@ class ScrapeOldestBlogs extends Command
             $html = (string) $response->getBody();
             $crawler = new Crawler($html);
 
-            $pageArticleLinks = $crawler->filter('h2.entry-title a')->each      (function (Crawler $node) {
+            $pageArticleLinks = $crawler->filter('h2.entry-title a')->each(function (Crawler $node) {
                 return $node->attr('href');
             });
     
@@ -83,7 +83,8 @@ class ScrapeOldestBlogs extends Command
 
             // check if any article already exist in DB so we can skip it
             if (Article::where('source_url', $url)->where('status', 'original')->exists()) {
-            continue;
+                $this->info('Article already exist');
+                continue;
             }
 
             $this->info("Scraping: {$url}");
