@@ -3,6 +3,7 @@ import checkUpdatedExists from "./checkUpdatedExists.js";
 import searchGoogle from "./searchGoogle.js";
 import scrapeArticle from "./scrapeArticle.js";
 import rewriteWithLLM from "./rewriteWithLLM.js";
+import publishUpdatedArticle from "./publishUpdatedArticle.js";
 
 async function main() {
   try {
@@ -39,6 +40,10 @@ async function main() {
     }
     console.log("Rewritten Article from LLM:");
     console.log(rewrittenArticle);
+
+    const publishedArticle = await publishUpdatedArticle({ title: latestOriginalArticle.title, content: rewrittenArticle, parent_id: latestOriginalArticle.id });
+    console.log("Article published successfully");
+    console.log(publishedArticle);
 
   } catch (error) {
     console.error("Error in main function");
