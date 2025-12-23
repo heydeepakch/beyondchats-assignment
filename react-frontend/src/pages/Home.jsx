@@ -23,7 +23,7 @@ export default function Home() {
     }
   };
 
-  if (loading) return <p className="p-6">Loading articles...</p>;
+  if (loading) return <p className="p-6">Loading articles...This may take a moment sometimes!</p>;
   if (error) return <p className="p-6 text-red-500">{error}</p>;
 
   return (
