@@ -50,7 +50,7 @@ export default async function scrapeArticle(url) {
       .trim();
 
     // Limit size to avoid feeding huge text to LLM
-    const MAX_LENGTH = 6000;
+    const MAX_LENGTH = 10000;
     if (content.length > MAX_LENGTH) {
       content = content.substring(0, MAX_LENGTH);
     }

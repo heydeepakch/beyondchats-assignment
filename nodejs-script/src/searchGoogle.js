@@ -10,7 +10,7 @@ export default async function searchGoogle(query) {
       "https://google.serper.dev/search",
       {
         q: query,
-        num: 5,
+        num: 10,
       },
       {
         headers: {
